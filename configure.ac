@@ -700,6 +700,14 @@ AS_IF([test "x$enable_uart" != xno],
 AS_IF([test "x$have_uart" = xyes],
       [AC_DEFINE([HAVE_UART], [1], [define if native UART support exists])])
 
+# AXI direct plugin
+AC_ARG_ENABLE(
+  [axi],
+  [AS_HELP_STRING([--enable-axi], [Enable axi dmx plugin])])
+
+AS_IF([test "x$enable_axi" = xyes],
+      [AC_DEFINE([HAVE_AXI], [1], [define if native axi support exists])])
+
 
 # OSC Support.
 # look for liblo if the user asked us to
@@ -870,6 +878,7 @@ PLUGIN_SUPPORT(spi, USE_SPI, [$have_spi])
 PLUGIN_SUPPORT(spidmx, USE_SPIDMX, [$have_spi])
 PLUGIN_SUPPORT(stageprofi, USE_STAGEPROFI)
 PLUGIN_SUPPORT(uartdmx, USE_UART, [$have_uart])
+PLUGIN_SUPPORT(axidmx, USE_AXI)
 PLUGIN_SUPPORT(usbdmx, USE_LIBUSB, [$have_libusb])
 PLUGIN_SUPPORT(usbpro, USE_USBPRO)
 

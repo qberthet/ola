@@ -123,6 +123,10 @@
 #include "plugins/dmx4linux/Dmx4LinuxPlugin.h"
 #endif  // USE_DMX4LINUX
 
+#ifdef USE_AXI
+#include "plugins/axidmx/AxiDmxPlugin.h"
+#endif  // USE_AXI
+
 namespace ola {
 
 using std::vector;
@@ -254,6 +258,11 @@ void DynamicPluginLoader::PopulatePlugins() {
   m_plugins.push_back(
       new ola::plugin::uartdmx::UartDmxPlugin(m_plugin_adaptor));
 #endif  // USE_UART
+
+#ifdef USE_AXI
+  m_plugins.push_back(
+      new ola::plugin::axidmx::AxiDmxPlugin(m_plugin_adaptor));
+#endif  // USE_AXI
 }
 
 void DynamicPluginLoader::UnloadPlugins() {

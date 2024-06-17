@@ -24,6 +24,7 @@ include plugins/usbpro/Makefile.mk
 include plugins/dmx4linux/Makefile.mk
 include plugins/e131/Makefile.mk
 include plugins/uartdmx/Makefile.mk
+include plugins/axidmx/Makefile.mk
 endif
 
 dist_noinst_SCRIPTS += plugins/convert_README_to_header.sh
